@@ -50,6 +50,14 @@ toolbarbutton#scrollbutton-down:not([disabled]):hover {
   animation: wobbleSkew 0.5s ease-in-out infinite;
 }
 
+/* Exclude animations from titlebar window control buttons (minimize, maximize, close) */
+#titlebar .titlebar-buttonbox > .titlebar-min:hover > .toolbarbutton-icon,
+#titlebar .titlebar-buttonbox > .titlebar-max:hover > .toolbarbutton-icon,
+#titlebar .titlebar-buttonbox > .titlebar-close:hover > .toolbarbutton-icon {
+  filter: none !important;
+  animation: none !important;
+}
+
 /* Active states and close window button hover state */
 #titlebar .titlebar-buttonbox > .titlebar-close:hover > .toolbarbutton-icon,
 .close-icon:active,
