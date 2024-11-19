@@ -6,6 +6,7 @@ user_pref("layout.css.has-selector.enabled", true);
 // UI
 user_pref("browser.compactmode.show", true);
 user_pref("layout.css.prefers-color-scheme.content-override", 0); // Force dark mode
+user_pref("ui.key.menuAccessKey", 0); // Remove the underscores on Context Menu Items
 
 // Remove native context menus
 user_pref("widget.gtk.native-context-menus", false);
@@ -32,6 +33,26 @@ user_pref("extensions.screenshots.disabled", true);
 // Recommendations
 user_pref("browser.dataFeatureRecommendations.enabled", false);
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false); // Remove 'Recommendations' tab in about:addons
+
+// Devtools
+user_pref("devtools.debugger.enabled", true);
+user_pref("devtools.debugger.auto-pretty-print", true);
+user_pref("devtools.debugger.remote-enabled", true);
+// Remove the annoying "Incoming connection" confirmation dialog when opening the Browser Toolbox
+user_pref("devtools.debugger.prompt-connection", false);
+
+// Media
+user_pref("media.default_volume", "1.0");
+user_pref("media.volume_scale", "1.0");
+user_pref("media.mediasource.experimental.enabled", true);
+user_pref("media.hardwaremediakeys.enabled", true);
+user_pref("media.ffmpeg.enabled", true);
+user_pref("media.ffmpeg.encoder.enabled", true);
+user_pref("media.flac.enabled", true);
+user_pref("media.gmp.encoder.enabled", true);
+user_pref("media.gmp.encoder.multithreaded", true);
+user_pref("media.hls.enabled", true);
+user_pref("media.peerconnection.video.denoising", true);
 
 // Warnings
 user_pref("browser.aboutConfig.showWarning", false); // disable about:config warning
@@ -209,3 +230,25 @@ user_pref("mousewheel.acceleration.start", -1);
 user_pref("mousewheel.min_line_scroll_amount", 5);
 user_pref("toolkit.scrollbox.horizontalScrollDistance", 5);
 user_pref("toolkit.scrollbox.verticalScrollDistance", 3);
+
+/// Addons/Extensions
+// Pocket
+user_pref("extensions.pocket.enabled", true);
+user_pref("extensions.pocket.refresh.emailButton.enabled", true);
+user_pref("extensions.pocket.refresh.hideRecentSaves.enabled", true);
+user_pref("extensions.pocket.showHome", true);
+user_pref("extensions.pocket.bffRecentSaves", true);
+user_pref("browser.urlbar.pocket.featureGate", true);
+user_pref("browser.urlbar.suggest.pocket", true);
+user_pref(
+	"browser.newtabpage.activity-stream.section.highlights.includePocket",
+	true
+);
+user_pref(
+	"browser.newtabpage.activity-stream.discoverystream.sendToPocket.enabled",
+	true
+);
+user_pref(
+	"browser.newtabpage.activity-stream.discoverystream.saveToPocketCard.enabled",
+	true
+);

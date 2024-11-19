@@ -23,8 +23,8 @@
 }
 
 #sidebar-box {
-  --uc-sidebar-width: 44px;
-  --uc-sidebar-hover-width: 260px;
+  --uc-sidebar-width: 42px;
+  --uc-sidebar-hover-width: 300px;
   --uc-autohide-sidebar-delay: 400ms;
   position: relative;
   min-width: var(--uc-sidebar-width) !important;

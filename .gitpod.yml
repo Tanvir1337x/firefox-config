@@ -1,0 +1,63 @@
+image: gitpod/workspace-full-vnc
+
+# TODO: Install and configure sidebery
+tasks:
+    - name: Setup Firefox configuration
+      init: |
+          sudo install -d -m 0755 /etc/apt/keyrings
+          wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
+          # Verify the key fingerprint
+          gpg -n -q --import --import-options import-show /etc/apt/keyrings/packages.mozilla.org.asc | awk '/pub/{getline; gsub(/^ +| +$/,""); if($0 == "35BAA0B33E9EB396F59CA838C0BA5CE6DC6315A3") print "\nThe key fingerprint matches ("$0").\n"; else print "\nVerification failed: the fingerprint ("$0") does not match the expected one.\n"}'
+          echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee /etc/apt/sources.list.d/mozilla.list > /dev/null
+          echo '
+          Package: *
+          Pin: origin packages.mozilla.org
+          Pin-Priority: 1000
+          ' | sudo tee /etc/apt/preferences.d/mozilla
+          sudo apt-get update && sudo apt-get install firefox -y
+
+          # Launch Firefox once to create the profile directory
+          firefox & sleep 5 && pkill firefox
+
+          PROFILE_DIR=$(find ~/.mozilla/firefox -maxdepth 1 -name "*.default*" | head -n 1)
+
+          mkdir -p "$PROFILE_DIR/chrome"
+      command: |
+          # Use dynamically detected profile directory
+          PROFILE_DIR=$(find ~/.mozilla/firefox -maxdepth 1 -name "*.default*" | head -n 1)
+
+          ln -sfn /workspace/firefox-config/user.js "$PROFILE_DIR/user.js"
+
+          for item in /workspace/firefox-config/chrome/*; do
+              ln -sfn "$item" "$PROFILE_DIR/chrome"
+          done
+
+ports:
+    - name: VNC
+      description: Full GUI Virtual Desktop
+      port: 6080
+      onOpen: open-browser
+vscode:
+    extensions:
+        - ecmel.vscode-html-css
+        - Gydunhn.javascript-essentials
+        - castrogusttavo.min-theme
+        - castrogusttavo.symbols
+        - antfu.icons-carbon
+        - gruntfuggly.todo-tree
+        - mhutchie.git-graph
+        - donjayamanne.githistory
+        - timonwong.shellcheck
+        - foxundermoon.shell-format
+        - tyriar.sort-lines
+        - yzhang.markdown-all-in-one
+        - davidanson.vscode-markdownlint
+        - naumovs.color-highlight
+        - oderwat.indent-rainbow
+        - tamasfe.even-better-toml
+        - idleberg.icon-fonts
+        - anseki.vscode-color
+        - aaron-bond.better-comments
+        - ibm.output-colorizer
+        - chouzz.vscode-better-align
+        - esbenp.prettier-vscode

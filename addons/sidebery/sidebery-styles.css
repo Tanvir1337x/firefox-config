@@ -1,4 +1,23 @@
 #root.root {
+  --tabs-border-radius: 10px;
+}
+#root.root {
+  --tabs-close-btn-margin: 10px;
+}
+#root.root {
+  --nav-btn-active-shadow: inset 0 0 0 1px rgb(195, 143, 143),
+    0 1px 3px 0 rgba(0, 0, 0, 0.212);
+}
+#root.root {
+  --nav-btn-fg: rgb(255, 255, 255);
+}
+#root.root {
+  --nav-btn-accent: rgb(195, 143, 143);
+}
+#root.root {
+  --tabs-inner-gap: 6.5px;
+}
+#root.root {
   --general-border-radius: 5px;
 }
 #root.root {
@@ -247,6 +266,16 @@
   opacity: 100;
 }
 
+/* Scrolling Tab text title animation */
+.Tab .title {
+  display: inline-block;
+  transition: transform 5s ease;
+}
+
+.Tab:hover .title {
+  transform: translateX(calc(-100% + 10rem));
+}
+
 /* Multiline Tab Titles */
 /* TODO: Fine-tune */
 /* TODO: Multiline Tab Titles in Hovercard Title */
@@ -270,23 +299,5 @@
   line-height: calc(
     (var(--tabs-height) - var(--tabs-title-padding)) / var(--tabs-title-lines)
   );
-}
-*/
-
-/* Scrolling Tab text title animation */
-/*
-.Tab .title {
-  display: inline-block;
-  transition: transform 5s ease;
-}
-
-.Tab:hover .title {
-  animation: moveTitle 5s infinite;
-}
-
-@keyframes moveTitle {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(-10rem); }
-  100% { transform: translateX(0); }
 }
 */
