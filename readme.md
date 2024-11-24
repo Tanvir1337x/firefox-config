@@ -11,4 +11,4 @@ This branch adds window control buttons at the bottom.
 
 It's based on [FrameUIForFirefox](https://github.com/FineFuturity/FrameUIForFirefox/), created by [FineFuturity](https://github.com/FineFuturity).
 
-Initial idea from [rpcarvalheira](https://github.com/rpcarvalheira). See: [#32](https://github.com/TanvirOnGH/firefox-config/issues/32)
+Initial idea from [rpcarvalheira](https://github.com/rpcarvalheira). See: [#32](https://github.com/Tanvir1337x/firefox-config/issues/32)
